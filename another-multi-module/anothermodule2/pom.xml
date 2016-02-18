@@ -5,13 +5,13 @@
 
     <parent>
         <groupId>de.rattermeyer.demo</groupId>
-        <artifactId>mm-parent</artifactId>
+        <artifactId>another-mm-parent</artifactId>
         <version>1.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>module2</artifactId>
+    <artifactId>anothermodule2</artifactId>
     <packaging>jar</packaging>
-    <name>module2</name>
+    <name>anothermodule2</name>
 
     <description>Sample module project (module2)</description>
 

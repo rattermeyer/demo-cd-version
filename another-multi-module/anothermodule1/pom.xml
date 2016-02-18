@@ -3,16 +3,23 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <artifactId>anothermodule1</artifactId>
+
     <parent>
         <groupId>de.rattermeyer.demo</groupId>
-        <artifactId>mm-parent</artifactId>
+        <artifactId>another-mm-parent</artifactId>
         <version>1.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>module2</artifactId>
     <packaging>jar</packaging>
-    <name>module2</name>
+    <name>anothermodule1</name>
 
-    <description>Sample module project (module2)</description>
+    <description>Sample module project (module1)</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>de.rattermeyer.demo</groupId>
+            <artifactId>module1</artifactId>
+        </dependency>
+    </dependencies>
 </project>
