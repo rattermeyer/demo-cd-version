@@ -21,7 +21,6 @@
     </properties>
 
     <build>
-        <finalName>${project.artifactId}-${project.version}.${env.TAGVERSION}</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>
