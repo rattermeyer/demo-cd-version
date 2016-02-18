@@ -49,7 +49,7 @@
                             <configuration>
                                 <generateBackupPoms>false</generateBackupPoms>
                                 <newVersion>
-                                    ${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.${env.TAGVERSION}
+                                    ${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${env.TAGVERSION}
                                 </newVersion>
                             </configuration>
                         </execution>
@@ -69,7 +69,7 @@
                                 <tasks>
                                     <mkdir dir="${project.basedir}/target"/>
                                     <property name="newVersion"
-                                              value="${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}.${env.TAGVERSION}"/>
+                                              value="${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${env.TAGVERSION}"/>
                                     <echo
                                             message="Writing project Version into ${project.basedir}/target/projectversion.properties: ${newVersion}"/>
                                     <echo file="${project.basedir}/target/projectversion.properties"

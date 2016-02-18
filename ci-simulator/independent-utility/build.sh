@@ -1,5 +1,10 @@
 #!/bin/sh
-. ./job.properties 
+. ./job.properties
+
+# increment build number and recreate properties file
+BUILD_NUMBER=$((BUILD_NUMBER+1))
+echo "BUILD_NUMBER=${BUILD_NUMBER}" > job.properties
+echo "GIT_URL=${GIT_URL}" >> job.properties
 rm -fr workspace
 git clone ${GIT_URL} workspace
 
