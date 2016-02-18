@@ -33,7 +33,7 @@
             <dependency>
                 <groupId>de.rattermeyer.demo</groupId>
                 <artifactId>mm-parent</artifactId>
-                <version>1.0.6-8da2268</version>
+                <version>1.1.8-cb3103e</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
