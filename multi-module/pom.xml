@@ -3,9 +3,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>de.rattermeyer.demo</groupId>
     <artifactId>mm-parent</artifactId>
     <version>1.0.1-SNAPSHOT</version>
+
+    <parent>
+        <groupId>de.rattermeyer.demo</groupId>
+        <artifactId>demo-parent</artifactId>
+        <version>1</version>
+    </parent>
 
     <packaging>pom</packaging>
 
@@ -24,5 +29,15 @@
         <module>module1</module>
         <module>module2</module>
     </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>de.rattermeyer.demo</groupId>
+                <artifactId>independent-utility</artifactId>
+                <version>1.1.1</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>
