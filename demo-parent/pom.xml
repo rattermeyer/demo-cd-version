@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>de.rattermeyer.demo</groupId>
+    <artifactId>demo-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+
+    <name>demo-parent</name>
+
+    <description>Sample parent pom</description>
+
+    <scm>
+        <connection>scm:git:https://github.com/rattermeyer/demo-docker-j2</connection>
+    </scm>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <buildtimestamp>${maven.build.timestamp}</buildtimestamp>
+        <maven.build.timestamp.format>yyyy-MM-dd HH:mm</maven.build.timestamp.format>
+    </properties>
+
+    <build>
+        <finalName>$\{project.artifactId}-$\{project.version}-r$\{buildNumber}</finalName>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>build-helper-maven-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>parse-version</id>
+                            <goals>
+                                <goal>parse-version</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>versions-maven-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>setnewversion</id>
+                            <phase>validate</phase>
+                            <goals>
+                                <goal>set</goal>
+                            </goals>
+                            <configuration>
+                                <generateBackupPoms>false</generateBackupPoms>
+                                <newVersion>
+                                    ${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}-${env.TAGVERSION}
+                                </newVersion>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!-- Write a properties file including the current version number -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-antrun-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>run</goal>
+                            </goals>
+                            <phase>validate</phase>
+                            <configuration>
+                                <tasks>
+                                    <mkdir dir="${project.basedir}/target"/>
+                                    <property name="newVersion"
+                                              value="${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}-${env.TAGVERSION}"/>
+                                    <echo
+                                            message="Writing project Version into ${project.basedir}/target/projectversion.properties: ${newVersion}"/>
+                                    <echo file="${project.basedir}/target/projectversion.properties"
+                                          message="projectversion=${newVersion}"/>
+                                </tasks>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+    <profiles>
+        <profile>
+            <id>cd-version</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>build-helper-maven-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>buildnumber-maven-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>versions-maven-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-jar-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+</project>
