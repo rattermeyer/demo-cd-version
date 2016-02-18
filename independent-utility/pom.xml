@@ -3,7 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- because we define a parent, we do not define a groupId here -->
+    <!-- to use the version plugin, we must set the groupId, although this could be taken from the parent -->
+    <groupId>de.rattermeyer.demo</groupId>
     <artifactId>independent-utility</artifactId>
     <version>1.1.1-SNAPSHOT</version>
 
