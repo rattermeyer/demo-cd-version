@@ -10,11 +10,11 @@ How to play with it
 
 ### Clone Repo from Github and create a local bare repository
 
-   git clone https://github.com/rattermeyer/demo-cd-version.git
-   mkdir demo-cd-version.git
-   cd demo-cd-version
-   git remote rm origin
-   git remote add origin /path/to/demo-cd-version.git
+    git clone https://github.com/rattermeyer/demo-cd-version.git
+    mkdir demo-cd-version.git
+    cd demo-cd-version
+    git remote rm origin
+    git remote add origin /path/to/demo-cd-version.git
 
 ### Update your build Jobs
 The build jobs are located under ci-simulator.
