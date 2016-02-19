@@ -43,7 +43,7 @@
             <dependency>
                 <groupId>de.rattermeyer.demo</groupId>
                 <artifactId>independent-utility</artifactId>
-                <version>1.1.3-b09255d</version>
+                <version>1.1.6-086aac3</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
