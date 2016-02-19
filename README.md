@@ -12,6 +12,9 @@ How to play with it
 
     git clone https://github.com/rattermeyer/demo-cd-version.git
     mkdir demo-cd-version.git
+    cd demo-cd-version.git
+    git init --bare
+    cd ..
     cd demo-cd-version
     git remote rm origin
     git remote add origin /path/to/demo-cd-version.git
@@ -67,3 +70,7 @@ And commit and push your changes
 
    cd ci-simulator/multi-module
    ./build.sh
+
+### Update another-multi-module project
+With the version created from the build run, you are now able to update another-multi-module.
+This references the parent pom of multi-module as a bom.
